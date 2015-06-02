@@ -1,0 +1,28 @@
+{
+  "name": "component",
+  "version": "0.0.1",
+  "description": "component for the browser and node.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nathanfaucett/component.git"
+  },
+  "main": "src/index.js",
+  "keywords": [
+    "component",
+    "component.js"
+  ],
+  "author": "Nathan Faucett",
+  "license": "BSD-2-Clause",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-jsbeautifier": "^0.2.7",
+    "mocha": "^2.1.0"
+  },
+  "dependencies": {
+    "has": "git://github.com/nathanfaucett/has",
+    "is_object": "git://github.com/nathanfaucett/is_object",
+    "is_function": "git://github.com/nathanfaucett/is_function"
+  }
+}
