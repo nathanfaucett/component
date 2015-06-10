@@ -21,7 +21,7 @@ function component(options) {
 
     if (isObject(propTypes)) {
         return function componentCall(props, callback) {
-            var errors = checkPropTypes(propTypes, props);
+            var errors = checkPropTypes(propTypes, props, displayName);
 
             if (errors) {
                 callback(errors);
