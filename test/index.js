@@ -2,9 +2,9 @@ var tape = require("tape"),
     createComponentFunction = require("..");
 
 
-function stringChecker(props, propName /*, displayName  */ ) {
+function stringChecker(props, propName /*, displayName, locale  */ ) {
     if (typeof(props[propName]) !== "string") {
-        return new TypeError("errors.string");
+        return new TypeError("Invalid String");
     } else {
         return null;
     }
@@ -29,15 +29,15 @@ tape("createComponentFunction(options: Object, func: Function) should create new
         }
     );
 
-    signIn({}, function onSignIn(errors) {
-        assert.equal(errors[0].message, "errors.string");
-        assert.equal(errors[1].message, "errors.string");
+    signIn({}, "en", function onSignIn(errors) {
+        assert.equal(errors[0].message, "Invalid String");
+        assert.equal(errors[1].message, "Invalid String");
     });
 
     signIn({
         username: "username",
         password: "123456"
-    }, function onSignIn(errors, user) {
+    }, "en", function onSignIn(errors, user) {
         if (user) {
             assert.deepEqual(user, {
                 username: "username",

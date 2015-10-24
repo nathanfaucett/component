@@ -8,7 +8,7 @@ create component function for the browser and node.js
 var createComponentFunction = require("create_component_function");
 
 
-function stringChecker(props, propName, displayName) {
+function stringChecker(props, propName, displayName/*, locale */) {
     if (typeof(props[propName]) !== "string") {
         return new TypeError(propName + " must be a string from "+ displayName);
     } else {
@@ -37,7 +37,7 @@ var signIn = createComponentFunction({
 signIn({
     username: "username",
     password: "password"
-}, function(errors, data) {
+}, "en", function(errors, data) {
     if (errors) {
         // handle errors
     } else {
