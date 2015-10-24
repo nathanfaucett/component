@@ -1,27 +1,29 @@
-component
+createComponentFunction
 =======
 
-component for the browser and node.js
+create component function for the browser and node.js
 
 
 ```javascript
-var component = require("component");
+var createComponentFunction = require("create_component_function");
+
 
 function stringChecker(props, propName, displayName) {
     if (typeof(props[propName]) !== "string") {
-        return new TypeError(propName + " must be a string");
+        return new TypeError(propName + " must be a string from "+ displayName);
     } else {
         return null;
     }
 }
 
-var signIn = component({
-    name: "signIn",
-    propTypes: {
-        username: stringChecker,
-        password: stringChecker
+var signIn = createComponentFunction({
+        name: "signIn",
+        propTypes: {
+            username: stringChecker,
+            password: stringChecker
+        }
     },
-    call: function(props, callback) {
+    function(props, callback) {
         var username = props.username,
             password = props.password;
 
@@ -29,6 +31,17 @@ var signIn = component({
             username: username,
             password: password
         });
+    }
+);
+
+signIn({
+    username: "username",
+    password: "password"
+}, function(errors, data) {
+    if (errors) {
+        // handle errors
+    } else {
+        // do stuff with data
     }
 });
 ```

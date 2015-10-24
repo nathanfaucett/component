@@ -3,34 +3,33 @@ var has = require("has"),
     isFunction = require("is_function");
 
 
-module.exports = component;
+module.exports = createComponentFunction;
 
 
-function component(options) {
-    var displayName, propTypes, call;
+function createComponentFunction(options, func) {
+    var displayName, propTypes;
 
     options = options || {};
 
     displayName = options.name || options.displayName || "<<anonymous>>";
     propTypes = options.propTypes || options.params;
-    call = options.call;
 
-    if (!isFunction(call)) {
-        throw new TypeError("component(options: Object) call must be a function");
+    if (!isFunction(func)) {
+        throw new TypeError("createComponentFunction(options: Object) func must be a function");
     }
 
     if (isObject(propTypes)) {
-        return function componentCall(props, callback) {
+        return function componentFunction(props, callback) {
             var errors = checkPropTypes(propTypes, props, displayName);
 
             if (errors) {
                 callback(errors);
             } else {
-                call(props, callback);
+                func(props, callback);
             }
         };
     } else {
-        return call;
+        return func;
     }
 }
 
