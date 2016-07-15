@@ -38,12 +38,10 @@ tape("createComponentFunction(options: Object, func: Function) should create new
         username: "username",
         password: "123456"
     }, "en", function onSignIn(errors, user) {
-        if (user) {
-            assert.deepEqual(user, {
-                username: "username",
-                password: "123456"
-            });
-        }
+        assert.deepEqual(user, {
+            username: "username",
+            password: "123456"
+        });
     });
 
     assert.end();

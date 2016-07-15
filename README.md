@@ -5,7 +5,7 @@ create component function for the browser and node.js
 
 
 ```javascript
-var createComponentFunction = require("create_component_function");
+var createComponentFunction = require("@nathanfaucett/create_component_function");
 
 
 function stringChecker(props, propName, displayName/*, locale */) {

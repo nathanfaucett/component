@@ -1,6 +1,6 @@
-var has = require("has"),
-    isObject = require("is_object"),
-    isFunction = require("is_function");
+var has = require("@nathanfaucett/has"),
+    isObject = require("@nathanfaucett/is_object"),
+    isFunction = require("@nathanfaucett/is_function");
 
 
 module.exports = createComponentFunction;
